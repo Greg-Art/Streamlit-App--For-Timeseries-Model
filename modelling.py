@@ -17,22 +17,22 @@ from statsmodels.tools.eval_measures import rmse
 ###importing my dataset
 
 ##our train
-train= pd.read_csv("models/train.csv")
+train= pd.read_csv("dataframes/train.csv")
 train= train.drop("Unnamed: 0", axis=1)
+train_target= train[["y"]]
 ##getting our test with target
 
-target= pd.read_csv("models/test_with_y.csv")
+target= pd.read_csv("dataframes/test_with_y.csv")
 ##filtering out our y
+test= pd.read_csv("dataframes/test.csv")
 test_target= target[["sales"]]
 
-train_target= train[["y"]]
+
 
 ##creating a copy of my train
 
 train_copy= train.copy()
-##model deployment
 
-st.header("Prediction with Facebook Prophet")
 
 ## data encoding
 
@@ -83,7 +83,7 @@ model.fit(full_train)
 
 ###before that I will make a copy of my test sample (df_sample)
 
-features= df_sample.copy()
+features= test.copy()
 
 features
 ##rename the date column
@@ -113,6 +113,7 @@ mean_abs_err= (MAE(eval,test_target)/test_target.mean())*100
 rmsle= np.sqrt(MSLE(eval,test_target))
 
 rmse=np.sqrt(MSE(eval,test_target))
+
 
 ###Our model is working well, so we will go ahead and dump the various components
 
