@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import pickle as pk 
 
+
 ##adding my title
 
 st.title("This is a Time Forecasting App with Facebook Prophet")
@@ -11,7 +12,7 @@ st.title("This is a Time Forecasting App with Facebook Prophet")
 
 st.markdown("This app predicts daily sales across all Favorita Stores")
 
-
+st.header("Prediction with Facebook Prophet")
 
 ## a plot of the Daily sales for favorita
 df_ori= pd.read_csv("models/original_dataframe.csv")
@@ -23,4 +24,4 @@ st.line_chart(df_ori["sales"])
 df_sample= pd.read_csv("models/test.csv")
 df_sample= df_sample.drop("Unnamed: 0", axis=1)
 st.subheader("This should be the format of your input: y is your sales, ds is your date")
-st.dataframe(df_sample)
+st.dataframe(df_sample.head())
