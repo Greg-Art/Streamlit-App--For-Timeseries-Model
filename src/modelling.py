@@ -61,13 +61,13 @@ train.head()
 
 ##everything has works so let's fit our model once again
 
-model=Prophet(interval_width= 0.95, yearly_seasonality= True,seasonality_mode= "multiplicative", seasonality_prior_scale=20 )
+model=Prophet( yearly_seasonality= True, seasonality_mode= "multiplicative", seasonality_prior_scale=25)
 
 ##stating my exogenous variables (extra regressors)
 exo_cols=[ 'holiday_0', 'holiday_1', 'holiday_2', 'locale', 'transferred', 'onpromotion', 'transactions']
 
 for cols in exo_cols:
-    model.add_regressor(cols, standardize= True)
+        model.add_regressor(cols, standardize=True)
 
 ##concating my train features with my train target to allow me fit
 
@@ -81,26 +81,28 @@ model.fit(full_train)
 
 ##let's make a prediction on our test
 
-###before that I will make a copy of my test sample (df_sample)
+###before that I will make a copy of my test sample 
 
-features= test.copy()
+test_features= test.copy()
 
-features
+test_features= test_features.drop("Unnamed: 0", axis= 1)
+
+test_features
 ##rename the date column
 
-features= features.rename(columns= {"date": "ds"})
+test_features= test_features.rename(columns= {"date": "ds"})
 
 ##using my binary encoder to transform it
+##transforming my test 
+test_features[["locale"]]= OE.transform(test_features[["locale"]])
 
-features[["locale"]]= OE.transform(features[["locale"]])
+test_features["transferred"]= LE.transform(test_features["transferred"])
+test_features= BE.transform(test_features)
 
-features["transferred"]= LE.transform(features["transferred"])
-features= BE.transform(features)
-
-features
+test_features
 ##making predictions on my test data
 
-eval_fbp= model.predict(features)
+eval_fbp= model.predict(test_features)
 
 ##filtering out my yhat to let me calculate my error metrics
 eval= eval_fbp[["yhat"]]
@@ -114,6 +116,10 @@ rmsle= np.sqrt(MSLE(eval,test_target))
 
 rmse=np.sqrt(MSE(eval,test_target))
 
-
+rmsle
+mean_abs_err
+rmse
 ###Our model is working well, so we will go ahead and dump the various components
+final_results= pd.DataFrame({"MAE":mean_abs_err, "RMSLE": rmsle, "RMSE":rmse })
 
+final_results
