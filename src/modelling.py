@@ -20,6 +20,8 @@ import streamlit as st
 import matplotlib.pyplot as plt 
 import seaborn as sns 
 
+##model loading
+import joblib 
 
 ###importing my dataset
 
@@ -30,7 +32,9 @@ train_target= train[["y"]]
 ##getting our test with target
 
 target= pd.read_csv("dataframes/test_with_y.csv")
+
 ##filtering out our y
+
 test= pd.read_csv("dataframes/test.csv")
 test_target= target[["sales"]]
 
@@ -68,7 +72,7 @@ train.head()
 
 ##everything has works so let's fit our model once again
 
-model=Prophet( yearly_seasonality= True, seasonality_mode= "multiplicative", seasonality_prior_scale=25)
+model=Prophet(yearly_seasonality= True, seasonality_mode= "multiplicative", seasonality_prior_scale=25)
 
 ##stating my exogenous variables (extra regressors)
 exo_cols=[ 'holiday_0', 'holiday_1', 'holiday_2', 'locale', 'transferred', 'onpromotion', 'transactions']
@@ -131,6 +135,61 @@ final_results= pd.DataFrame({"MAE":mean_abs_err, "RMSLE": rmsle, "RMSE":rmse })
 final_results
 
 ##plotting my outcome
-fig=plot_plotly(model,eval_fbp )
-fig.show()
+model.plot(eval_fbp)
+plt.show()
 
+### I am going to drop my prophet and thhen 
+
+
+"""in this section, I am going to drop the holidays column and then use the inbuilt Facebook Prophet Holiday 
+feature
+"""
+##loading my dataframes again
+
+train_2= train_copy.drop(columns= ["holiday", "locale", "transferred"], axis= 1)
+
+train_2
+
+test_2= test.drop(columns= ["Unnamed: 0","holiday", "locale", "transferred"], axis= 1)
+
+test_2
+
+train_2
+
+model_2= Prophet(yearly_seasonality= True, seasonality_mode= "multiplicative", seasonality_prior_scale=25)
+
+model_2.add_country_holidays(country_name= "ECU")
+
+train_2.columns
+
+for col in train_2.drop(columns=["ds", "y"], axis= 1):
+    model_2.add_regressor(col, standardize=True, prior_scale=20)
+
+
+model_2.fit(train_2)
+
+eval_2_fbp=model_2.predict(test_2)
+
+eval_2= eval_2_fbp[["yhat"]]
+
+##error metrics
+
+mae_2= (MAE(test_target,eval_2)/test_target.mean()) * 100
+
+rmsle_2= np.sqrt(MSLE(test_target,eval_2))
+
+rmse_2= np.sqrt(MSE(test_target,eval_2))
+
+final_error_2= pd.DataFrame({"MAE":mae_2, "RMSLE": rmsle_2, "RMSE":rmse_2 })
+
+final_error_2
+
+final_results
+
+model_2.plot_components(eval_2_fbp)
+model_2.plot(eval_2_fbp)
+plt.show()
+
+## our model did pretty well, so we wil go ahead and save its components using joblib 
+
+joblib.dump("Desktop/models/fbpmodel.plk")
