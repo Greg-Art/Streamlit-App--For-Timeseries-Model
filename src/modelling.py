@@ -1,17 +1,24 @@
 ## libraries importation
-import streamlit as st
+##data handling 
 import pandas as pd 
 import numpy as np
+###encoders and model
 from prophet import Prophet
 from sklearn.preprocessing import LabelEncoder 
 from sklearn.preprocessing import OrdinalEncoder
 from category_encoders import BinaryEncoder
-import joblib
+##error metrics 
 from sklearn.metrics import mean_absolute_error as MAE
 from sklearn.metrics import mean_squared_log_error as MSLE
 from sklearn.metrics import mean_squared_error as MSE
 from statsmodels.tools.eval_measures import rmse
-
+##visualization and webapp
+import plotly.express as ex
+import plotly.offline as po
+from prophet.plot import plot_plotly, plot_components_plotly 
+import streamlit as st
+import matplotlib.pyplot as plt 
+import seaborn as sns 
 
 
 ###importing my dataset
@@ -121,5 +128,9 @@ mean_abs_err
 rmse
 ###Our model is working well, so we will go ahead and dump the various components
 final_results= pd.DataFrame({"MAE":mean_abs_err, "RMSLE": rmsle, "RMSE":rmse })
-
 final_results
+
+##plotting my outcome
+fig=plot_plotly(model,eval_fbp )
+fig.show()
+
