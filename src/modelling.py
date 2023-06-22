@@ -29,14 +29,15 @@ import joblib
 train= pd.read_csv("dataframes/train.csv")
 train= train.drop("Unnamed: 0", axis=1)
 train_target= train[["y"]]
+
 ##getting our test with target
 
-target= pd.read_csv("dataframes/test_with_y.csv")
+t_w_target= pd.read_csv("dataframes/test_with_y.csv")
 
 ##filtering out our y
 
 test= pd.read_csv("dataframes/test.csv")
-test_target= target[["sales"]]
+test_target= t_w_target[["sales"]]
 
 
 
@@ -146,9 +147,11 @@ feature
 """
 ##loading my dataframes again
 
+##dropping the holiday columns for the new training dataframe
 train_2= train_copy.drop(columns= ["holiday", "locale", "transferred"], axis= 1)
 
 train_2
+##dropping the holiday columns for the new test dataframe
 
 test_2= test.drop(columns= ["Unnamed: 0","holiday", "locale", "transferred"], axis= 1)
 
@@ -156,11 +159,15 @@ test_2
 
 train_2
 
-model_2= Prophet(yearly_seasonality= True, seasonality_mode= "multiplicative", seasonality_prior_scale=25)
+##instatiating my model
 
+model_2= Prophet(yearly_seasonality= True, 
+                 seasonality_mode= "multiplicative", holidays_prior_scale=20, seasonality_prior_scale=25)
+
+##adding the holiday effect 
 model_2.add_country_holidays(country_name= "ECU")
 
-train_2.columns
+##adding my regressors (exogenous variables)
 
 for col in train_2.drop(columns=["ds", "y"], axis= 1):
     model_2.add_regressor(col, standardize=True, prior_scale=20)
@@ -170,9 +177,11 @@ model_2.fit(train_2)
 
 eval_2_fbp=model_2.predict(test_2)
 
+##getting my predicted values 
+
 eval_2= eval_2_fbp[["yhat"]]
 
-##error metrics
+##evaluating my model's performance
 
 mae_2= (MAE(test_target,eval_2)/test_target.mean()) * 100
 
