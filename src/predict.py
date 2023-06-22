@@ -23,5 +23,5 @@ st.line_chart(df_ori["sales"])
 ##showing the user a sample dataframe they should have 
 df_sample= pd.read_csv("dataframes/test.csv")
 df_sample= df_sample.drop("Unnamed: 0", axis=1)
-st.subheader("This should be the format of your input: y is your sales, ds is your date")
+st.subheader("Format of Input: y is your sales, ds is your date")
 st.dataframe(df_sample.head())
