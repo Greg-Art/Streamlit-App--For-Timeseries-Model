@@ -37,8 +37,3 @@ def front_page():
     st.subheader("Format of Input: y is your sales, ds is your date")
     st.dataframe(df_sample.head())
 
-
-
-
-
-
