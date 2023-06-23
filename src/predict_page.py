@@ -38,12 +38,14 @@ ds= st.date_input(label= "Please enter the date you want to forecast")
 transactions= st.number_input(label= "Please enter the total number of expected transactions")
 onpromotion= st.number_input(label= "Please enter the total number of expected items to be on promotions")
 
-##creating a fucntion for my inputs 
+##creating a dataframe for my inputs 
 
 input_data= [ds, onpromotion, transactions]
 inputs= pd.DataFrame([input_data], columns=["ds", "onpromotion", "transactions"])
 forecast= model.predict(inputs)
 
+##creating an output for my output
 st.header("Your Prediction is Displayed Below: ")
 
+##telling my model to return the yhat of my input
 st.write(forecast["yhat"])
