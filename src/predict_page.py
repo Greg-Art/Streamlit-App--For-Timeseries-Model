@@ -35,13 +35,13 @@ st.line_chart(df_ori["sales"])
 ##defining my inputs 
 st.header("Make a Forecast Here: ")
 ds= st.date_input(label= "please enter the date you want to forecast")
-transcations= st.number_input(label= "Please enter the total number of transactions to be run")
-onpromotion= st.number_input(label= "Please enter the total number of promotions to be run")
+transactions= st.number_input(label= "Please enter the total number of expected transactions")
+onpromotion= st.number_input(label= "Please enter the total number of expected items to be on promotions")
 
 ##creating a fucntion for my inputs 
 
-def input(ds, transactions, onpromotion):
-    input_data= [ds, onpromotion, transactions]
-    inputs= pd.DataFrame([input_data], columns=["ds", "onpromotion", "transactions"])
-    return inputs
+input_data= [ds, onpromotion, transactions]
+inputs= pd.DataFrame([input_data], columns=["ds", "onpromotion", "transactions"])
+forecast= model.predict(inputs)
 
+st.write(forecast["yhat"])
