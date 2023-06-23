@@ -161,8 +161,8 @@ train_2
 
 ##instatiating my model
 
-model_2= Prophet(yearly_seasonality= True, 
-                 seasonality_mode= "multiplicative", holidays_prior_scale=20, seasonality_prior_scale=25)
+model_2= Prophet(yearly_seasonality= True,
+                 seasonality_mode= "multiplicative", seasonality_prior_scale=25)
 
 ##adding the holiday effect 
 model_2.add_country_holidays(country_name= "ECU")
@@ -199,6 +199,12 @@ model_2.plot_components(eval_2_fbp)
 model_2.plot(eval_2_fbp)
 plt.show()
 
-## our model did pretty well, so we wil go ahead and save its components using joblib 
+""" our second model with embedded holiday effects did pretty well by giving us a much lower rmsle than our 
+initial model where we used had to hard-encode our holiday effect
+"""
+##saving my Facebook Prophet model
+joblib.dump(model_2,"C:/Users/Gregory Arthur/Desktop/models/fbpmodel.joblib")
 
-joblib.dump("Desktop/models/fbpmodel.plk")
+"""
+Note: Since we used facebook prophet's inbuilt holiday effect, we will not need to save any of the encoders
+"""
