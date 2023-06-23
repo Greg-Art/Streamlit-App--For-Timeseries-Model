@@ -34,7 +34,7 @@ st.line_chart(df_ori["sales"])
 
 ##defining my inputs 
 st.header("Make a Forecast Here: ")
-ds= st.date_input(label= "please enter the date you want to forecast")
+ds= st.date_input(label= "Please enter the date you want to forecast")
 transactions= st.number_input(label= "Please enter the total number of expected transactions")
 onpromotion= st.number_input(label= "Please enter the total number of expected items to be on promotions")
 
