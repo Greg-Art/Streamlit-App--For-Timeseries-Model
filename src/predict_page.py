@@ -22,7 +22,7 @@ result= model.predict(test)
 
 
 ##adding my title
-st.title("Favorita Store Sales Prediction APP with Facebook Propher")
+st.title("Favorita Store Sales Prediction APP with Facebook Prophet")
     ##adding my description 
 st.markdown("This app predicts daily sales across all Favorita Stores")
     
@@ -43,5 +43,7 @@ onpromotion= st.number_input(label= "Please enter the total number of expected i
 input_data= [ds, onpromotion, transactions]
 inputs= pd.DataFrame([input_data], columns=["ds", "onpromotion", "transactions"])
 forecast= model.predict(inputs)
+
+st.header("Your Prediction is Displayed Below: ")
 
 st.write(forecast["yhat"])
