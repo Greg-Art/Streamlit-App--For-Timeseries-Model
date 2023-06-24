@@ -1,4 +1,4 @@
-# Streamlit Deployment with FBP
+# Creating a Web App for a Facebook Prophet Time Series Model 
 
 The aim of this project is to deploy a time series regression analysis model. My model of choice was built using Facebook Prophet with external regressors (transaction and on promotions) and the in-built holiday effect feature of Facebook Prophet. 
 
