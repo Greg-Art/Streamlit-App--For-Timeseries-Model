@@ -34,6 +34,8 @@ input_data= [ds, onpromotion, transactions]
 inputs= pd.DataFrame([input_data], columns=["ds", "onpromotion", "transactions"])
 forecast= model.predict(inputs)
 
+st.subheader("Below is your Forecast Dataframe")
+forecast
 ##creating an output for my output
 st.header("Your Prediction is Displayed Below: ")
 
