@@ -5,6 +5,11 @@ import joblib
 from datetime import date
 from prophet.plot import plot_plotly, plot_components
 
+##adding my title
+st.title("Favorita Store Sales Prediction APP with Facebook Prophet")
+    ##adding my description 
+st.markdown("On this Page you can predict daily sales across all Favorita Stores")
+
 ##loading my model again
 
 model= joblib.load("C:/Users/Gregory Arthur/Desktop/models/fbpmodel.joblib")
@@ -16,21 +21,6 @@ test=pd.read_csv("dataframes/test.csv")
 test=test.drop(["holiday", "locale", "transferred"], axis= 1)
 
 result= model.predict(test)
-
-
-##creating my web page 
-
-
-##adding my title
-st.title("Favorita Store Sales Prediction APP with Facebook Prophet")
-    ##adding my description 
-st.markdown("This app predicts daily sales across all Favorita Stores")
-    
-df_ori= pd.read_csv("dataframes/original_dataframe.csv")
-df_ori= df_ori.set_index("date")
-st.subheader("A Chart of the Daily Sales Across Favorita Stores")
-st.line_chart(df_ori["sales"])
-    
 
 ##defining my inputs 
 st.header("Make a Forecast Here: ")
