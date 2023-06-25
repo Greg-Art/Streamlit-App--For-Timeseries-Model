@@ -14,7 +14,7 @@ The aim of this project is to deploy a time series regression analysis model. My
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements.txt file. 
 
 ```bash
-pip install -m requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Usage
