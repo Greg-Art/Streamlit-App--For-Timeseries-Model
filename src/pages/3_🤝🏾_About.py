@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.write("Learn More About Me:")
+st.title("Learn More About Me:")
