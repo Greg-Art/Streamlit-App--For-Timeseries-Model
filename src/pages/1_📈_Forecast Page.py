@@ -6,7 +6,7 @@ from datetime import date
 from prophet.plot import plot_plotly, plot_components
 
 ##adding my title
-st.title("Favorita Store Sales Prediction APP with Facebook Prophet")
+st.title("Favorita Store Sales Prediction App with Facebook Prophet")
     ##adding my description 
 st.markdown("On this Page you can predict daily sales across all Favorita Stores")
 
