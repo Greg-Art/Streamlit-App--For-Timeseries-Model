@@ -33,6 +33,8 @@ onpromotion= st.number_input(label= "Please enter the total number of expected i
 input_data= [ds, onpromotion, transactions]
 inputs= pd.DataFrame([input_data], columns=["ds", "onpromotion", "transactions"])
 forecast= model.predict(inputs)
+forecast_value= forecast["yhat"]
+forecast_output = f"Your sales on {ds} will be ${forecast_value.values[0]:.2f}"
 
 st.subheader("Below is your Forecast Dataframe")
 forecast
@@ -40,4 +42,4 @@ forecast
 st.header("Your Prediction is Displayed Below: ")
 
 ##telling my model to return the yhat of my input
-st.write(forecast["yhat"])
+st.write(forecast_output)
