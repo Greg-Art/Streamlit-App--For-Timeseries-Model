@@ -24,7 +24,7 @@ result= model.predict(test)
 
 ##defining my inputs 
 st.header("Make a Forecast Here: ")
-ds= st.date_input(label= "Please enter the date you want to forecast")
+ds= st.date_input(label= "Please enter the date you would want to forecast")
 transactions= st.number_input(label= "Please enter the total number of expected transactions")
 onpromotion= st.number_input(label= "Please enter the total number of expected items to be on promotions")
 
@@ -36,17 +36,26 @@ forecast= model.predict(inputs)
 forecast_value= forecast["yhat"]
 forecast_output = f"Your sales on {ds} will be ${forecast_value.values[0]:.2f}"
 
+##I am creating an empty dataframe which will be displayed until the user clicks on submit
+forecast_emp = forecast.applymap(lambda x: np.nan)
+forecast_emp= forecast_emp.replace(np.nan,0)
+
+
 ##adding a button
-output= st.button("submit")
+output= st.button("Submit")
 
 
-st.header("Your Prediction is Displayed Below: ")
+st.subheader("Your Forecast is Displayed Below: ")
 
-##telling my model to return the yhat of my input
+##telling my model to return the yhat if the submit button is clicked
 if output:
     st.write(forecast_output)
+else:
+    st.write("Your sales on ...... will be .....")
 
 st.subheader("Below is your Forecast Dataframe")
 ##creating an output for my output
 if output:
     st.write(forecast)
+else:
+    st.write(forecast_emp)
