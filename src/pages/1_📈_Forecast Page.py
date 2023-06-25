@@ -36,10 +36,17 @@ forecast= model.predict(inputs)
 forecast_value= forecast["yhat"]
 forecast_output = f"Your sales on {ds} will be ${forecast_value.values[0]:.2f}"
 
-st.subheader("Below is your Forecast Dataframe")
-forecast
-##creating an output for my output
+##adding a button
+output= st.button("submit")
+
+
 st.header("Your Prediction is Displayed Below: ")
 
 ##telling my model to return the yhat of my input
-st.write(forecast_output)
+if output:
+    st.write(forecast_output)
+
+st.subheader("Below is your Forecast Dataframe")
+##creating an output for my output
+if output:
+    st.write(forecast)
