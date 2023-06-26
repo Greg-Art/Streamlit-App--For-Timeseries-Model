@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ```python
 import all the necessary library names. eg import Streamlit as st 
 
-# run the app using the "predict_page.py" file
+# run the app using the "Welcome.py" file
 Streamlit run src/Welcome.py
 
 
