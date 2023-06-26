@@ -1,11 +1,35 @@
 import streamlit as st
+from st_functions import st_button, load_css
+from PIL import Image
+import sys
 
-st.title("Learn More About Me:")
+sys.path.append('/src') ##appending my src path so that I can import a function from another py file
+
+st.title("Learn More About Me:") ## my title 
+
+load_css()   ##loading css customizations from st_function file 
+
+col1, col2, col3 = st.columns(3)
+col2.image(Image.open('src/dp.png'))   ##loading my image
+
+st.header('Gregory Arthur: The Data Guy')
+
+st.info('Volunteer, Data Analyst, Aspiring Data Engineer with an interest in Data Science and Finances')
+
+icon_size = 20
+
+st.subheader("What Can I Help Your Business Achieve?")
 
 st.write("""
-Gregory Arthur is a relentless explorer of the boundless possibilities hidden within data. As a distinguished data 
-analysis trainee at Azubi Africa, my arsenal is fortified with the formidable tools of Excel, Power BI, SQL,
- and Python, not only that, I am experienced in leveraging frameworks such as Streamlit and Gradio to 
- develop interactive web apps for your machine learning models, which I can deploy on either Heiroku or Hugging Face,
-enabling me to dissect and decipher intricate datasets with finesse. 
+- Perform descriptive analysis to extract valuable insights from your business' dataset.
+- Develop regression, time series, and classification models for accurate predictions and forecasting.
+- Build visually appealing dashboards displaying key KPIs and business metrics for easy assimilation.
+
 """)
+
+st.subheader("Connect With Me: ")
+
+st_button('medium', 'https://medium.com/@gregoryarthur98', 'Read my Blogs', icon_size)
+st_button('github', 'https://github.com/Greg-Art', 'Checkout My Respoitories', icon_size)
+st_button('linkedin', 'https://www.linkedin.com/in/gregory-kwaku-arthur-b68a28252/', 'Follow me on LinkedIn', icon_size)
+st_button('mail', 'gregoryarthur98@gmail.com', 'Send me a mail', icon_size)
