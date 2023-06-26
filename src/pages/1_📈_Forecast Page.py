@@ -45,7 +45,7 @@ forecast_emp= forecast_emp.replace(np.nan,0)
 output= st.button("Submit")
 
 
-st.subheader("Your Forecast is Displayed Below: ")
+st.subheader("Your Sales Forecast is Displayed Below: ")
 
 ##telling my model to return the yhat if the submit button is clicked
 if output:
@@ -53,7 +53,7 @@ if output:
 else:
     st.write("Your sales on ...... will be .....")
 
-st.subheader("Below is your Forecast Dataframe")
+st.subheader("Your Forecast Dataframe is Displayed Below: ")
 ##creating an output for my output
 if output:
     st.write(forecast)
