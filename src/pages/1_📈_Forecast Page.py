@@ -12,7 +12,7 @@ st.markdown("On this Page you can predict daily sales across all Favorita Stores
 
 ##loading my model again
 
-model= joblib.load("C:/Users/Gregory Arthur/Desktop/models/fbpmodel.joblib")
+model= joblib.load("models/fbpmodel.joblib")
 
 ##loading my test data
 
