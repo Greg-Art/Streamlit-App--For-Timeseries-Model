@@ -20,6 +20,7 @@ test=pd.read_csv("dataframes/test.csv")
 
 test=test.drop(["holiday", "locale", "transferred"], axis= 1)
 
+##testing my model 
 result= model.predict(test)
 
 ##defining my inputs 
