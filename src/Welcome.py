@@ -1,4 +1,6 @@
 import streamlit as st
+import json
+
 
 st.set_page_config(page_title="Welcome to Greg's Time Series Forecast App", 
                    page_icon="waving hands"
@@ -12,5 +14,5 @@ st.write("""Favorita Corporation is an Ecuadorian company that creates,
          Its subsidiaries have activities in six countries in the region, 
          including Panama, Paraguay, Peru, Colombia, Costa Rica and Chile. 
          They offer the best products, services and experiences in an efficient,sustainable and responsible way 
-         to improve the quality of life.In this app, 
-         I will be using Facebook Prophet to Predict the Daily sales Across all Favorita Store""")
+         to improve the quality of life. On this website, I will be using Facebook Prophet to Predict the Daily sales Across all Favorita Store""")
+
