@@ -17,7 +17,7 @@ lottie_hello= load_lottiefile("https://assets5.lottiefiles.com/packages/lf20_M9p
 ##buidling my welcome page
 
 st.set_page_config(page_title="Welcome to Greg's Time Series Forecast App", 
-                   page_icon="waving hands"
+                   page_icon="👋"
                    )
 
 st.title("Welcome To My Forecasting App for Favorita Corp.")
