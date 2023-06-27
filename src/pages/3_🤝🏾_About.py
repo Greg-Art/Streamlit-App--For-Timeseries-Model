@@ -10,7 +10,7 @@ st.title("Learn More About Me:") ## my title
 load_css()   ##loading css customizations from st_function file 
 
 col1, col2, col3 = st.columns(3)
-col2.image(Image.open('src/dp.jpeg'))   ##loading my image
+col2.image(Image.open('src/dp.PNG'))   ##loading my image
 
 st.header('Gregory Arthur: The Data Guy')
 
