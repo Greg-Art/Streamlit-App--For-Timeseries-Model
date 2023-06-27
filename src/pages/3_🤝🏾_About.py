@@ -18,12 +18,12 @@ st.info('Volunteer, Data Analyst, Aspiring Data Engineer with an interest in Dat
 
 icon_size = 20
 
-st.subheader("What Can I Help Your Business Achieve?")
+st.subheader("I Can Help Your Business To: ")
 
 st.write("""
 - Perform descriptive analysis to extract valuable insights from your business' dataset.
 - Develop regression, time series, and classification models for accurate predictions and forecasting.
-- Build visually appealing dashboards displaying key KPIs and business metrics for easy assimilation.
+- Build visually appealing dashboards displaying KPIs and business metrics for easy assimilation.
 
 """)
 
