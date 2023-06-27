@@ -29,15 +29,15 @@ test=test.drop(["holiday", "locale", "transferred"], axis= 1)
 result= model.predict(test)
 
 ##inserting my animation
-def animation_loader(url: str):
+def load_lottiefile(url: str):
     r= requests.get(url)
     if r.status_code !=200:
         return None
     return r.json()
 
-animation= animation_loader("https://assets3.lottiefiles.com/packages/lf20_7c1e8erd.json") ##downloading my animation
+animation= load_lottiefile("https://assets3.lottiefiles.com/packages/lf20_7c1e8erd.json") ##downloading my animation
 
-st_lottie(animation, size= 200) ##inserting animation
+st_lottie(animation, height= 200) ##inserting animation
 
 ##defining my inputs 
 st.header("Make a Forecast Here: ")
