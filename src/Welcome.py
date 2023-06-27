@@ -10,7 +10,7 @@ def load_lottiefile(url: str):
         return None
     return r.json()
 
-##downloading function
+##downloading  the animation
 
 lottie_hello= load_lottiefile("https://assets5.lottiefiles.com/packages/lf20_M9p23l.json")
 
@@ -22,7 +22,8 @@ st.set_page_config(page_title="Welcome to Greg's Time Series Forecast App",
 
 st.title("Welcome To My Forecasting App for Favorita Corp.")
 
-st_lottie(lottie_hello, height= 200)
+st_lottie(lottie_hello, height= 200) ##inserting my animation
+
 st.sidebar.success("Please Select the Page") ##creating my sidebar 
 
 st.write("""Favorita Corporation is an Ecuadorian company that creates, 
