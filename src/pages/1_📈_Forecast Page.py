@@ -35,7 +35,7 @@ input_data= [ds, onpromotion, transactions]
 inputs= pd.DataFrame([input_data], columns=["ds", "onpromotion", "transactions"])
 forecast= model.predict(inputs)
 forecast_value= forecast["yhat"]
-forecast_output = f"Your sales on {ds} will be ${forecast_value.values[0]:.2f}"
+forecast_output = f"Favorita Corp's total sales on {ds} will be ${forecast_value.values[0]:.2f}"
 
 ##I am creating an empty dataframe which will be displayed until the user clicks on submit
 forecast_emp = forecast.applymap(lambda x: np.nan)
