@@ -28,7 +28,7 @@ test=test.drop(["holiday", "locale", "transferred"], axis= 1)
 ##testing my model 
 result= model.predict(test)
 
-##inserting my animation
+##creating a function to download my animation
 def load_lottiefile(url: str):
     r= requests.get(url)
     if r.status_code !=200:
