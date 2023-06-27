@@ -52,7 +52,7 @@ st.subheader("Your Sales Forecast is Displayed Below: ")
 if output:
     st.write(forecast_output)
 else:
-    st.write("Your sales on ...... will be .....")
+    st.write("Favorita Corp's Total Sales On ...... Will Be .....")
 
 st.subheader("Your Forecast Dataframe is Displayed Below: ")
 ##creating an output for my output
