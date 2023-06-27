@@ -4,11 +4,16 @@ import pandas as pd
 import joblib 
 from datetime import date
 from prophet.plot import plot_plotly, plot_components
+from streamlit_lottie import st_lottie
+import requests
+import json
 
 ##adding my title
 st.title("Favorita Store Sales Prediction App with Facebook Prophet")
     ##adding my description 
 st.markdown("On this Page you can predict daily sales across all Favorita Stores")
+
+
 
 ##loading my model again
 
@@ -22,6 +27,17 @@ test=test.drop(["holiday", "locale", "transferred"], axis= 1)
 
 ##testing my model 
 result= model.predict(test)
+
+##inserting my animation
+def animation_loader(url: str):
+    r= requests.get(url)
+    if r.status_code !=200:
+        return None
+    return r.json()
+
+animation= animation_loader("https://assets3.lottiefiles.com/packages/lf20_7c1e8erd.json") ##downloading my animation
+
+st_lottie(animation, size= 200) ##inserting animation
 
 ##defining my inputs 
 st.header("Make a Forecast Here: ")
