@@ -6,7 +6,8 @@ The aim of this project is to deploy a time series regression analysis model. My
 - The source code can be found in the src folder
 - The needed CSV files can be found in the data frames folder. 
 - The Notebook folder contains the Notebook I used for my EDA and comparison of the model 
-- My virtual environment is the stenv folder 
+- I used the Virtualevn python environment
+
 
 
 ## Installation
