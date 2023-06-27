@@ -14,7 +14,7 @@ col2.image(Image.open('src/dp.PNG'))   ##loading my image
 
 st.header('Gregory Arthur: The Data Guy')
 
-st.info('Volunteer, Data Analyst, Aspiring Data Engineer with an interest in Data Science and Finances')
+st.info('Volunteer| Data Analyst| Aspiring Data Engineer with an interest in Data Science and Finances')
 
 icon_size = 20
 
