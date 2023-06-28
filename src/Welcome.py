@@ -1,7 +1,7 @@
 import streamlit as st
 import json
 import requests
-from streamlit_lottie import st_lottie ##to get animations from lottie web
+from streamlit_lottie import st_lottie 
 
 ##defining a function to dowload animation from Lottie Web
 def load_lottiefile(url: str):
@@ -20,7 +20,7 @@ st.set_page_config(page_title="Welcome to Greg's Time Series Forecast App",
                    page_icon="👋"
                    )
 
-st.title("Welcome To My Forecasting App for Favorita Corp.")
+st.title("Welcome To My Favorita Corp Sales Forecasting App.")
 
 st_lottie(lottie_hello, height= 200) ##inserting my animation
 
