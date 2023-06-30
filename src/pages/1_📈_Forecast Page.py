@@ -29,6 +29,7 @@ test=test.drop(["holiday", "locale", "transferred"], axis= 1)
 result= model.predict(test)
 
 ##creating a function to download my animation
+@st.cache_data
 def animator_downloader(url: str):
     r= requests.get(url)
     if r.status_code !=200:
