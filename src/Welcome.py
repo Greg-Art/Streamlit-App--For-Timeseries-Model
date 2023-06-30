@@ -3,7 +3,14 @@ import json
 import requests
 from streamlit_lottie import st_lottie 
 
+##setting my main page
+st.set_page_config(page_title="Welcome to Greg's Time Series Forecast App", 
+                   page_icon="👋"
+                   )
+
 ##defining a function to dowload animation from Lottie Web
+
+@st.cache_data ##adding a cache
 def load_lottiefile(url: str):
     r= requests.get(url)
     if r.status_code !=200:
@@ -14,11 +21,7 @@ def load_lottiefile(url: str):
 
 lottie_hello= load_lottiefile("https://assets5.lottiefiles.com/packages/lf20_M9p23l.json")
 
-##buidling my welcome page
-
-st.set_page_config(page_title="Welcome to Greg's Time Series Forecast App", 
-                   page_icon="👋"
-                   )
+##setting my title
 
 st.title("Welcome To My Favorita Corp Sales Forecasting App.")
 
