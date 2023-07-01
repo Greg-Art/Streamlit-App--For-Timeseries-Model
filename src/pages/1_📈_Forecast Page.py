@@ -56,7 +56,7 @@ forecast_output = f"Favorita Corp's total sales on {ds} will be ${forecast_value
 
 ##I am creating an empty dataframe which will be displayed until the user clicks on submit
 forecast_emp = forecast.applymap(lambda x: np.nan)
-forecast_emp= forecast_emp.replace(np.nan,0)
+forecast_emp= forecast_emp.replace(np.nan,0) ##replacing NaN with 0
 
 
 ##adding a button
