@@ -52,7 +52,10 @@ input_data= [ds, onpromotion, transactions]
 inputs= pd.DataFrame([input_data], columns=["ds", "onpromotion", "transactions"])
 forecast= model.predict(inputs)
 forecast_value= forecast["yhat"]
+confidence_interval= forecast[["yhat_upper", "yhat_lower"]]
 forecast_output = f"Favorita Corp's total sales on {ds} will be ${forecast_value.values[0]:.2f}"
+upper_interval= f"The "
+
 
 ##I am creating an empty dataframe which will be displayed until the user clicks on submit
 forecast_emp = forecast.applymap(lambda x: np.nan)
@@ -77,3 +80,5 @@ if output:
     st.write(forecast)
 else:
     st.write(forecast_emp)
+
+   
