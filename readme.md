@@ -30,7 +30,7 @@ Streamlit run src/Welcome.py
 ## Summary
 | Code      | Name        | Published Article |  Deployed App |
 |-----------|-------------|:-------------:|------:|
-| LP5 | Sentiment Analysis |  [Article to project](https://gregoryarthur98.medium.com/create-a-multipage-app-for-your-regression-model-without-using-css-html-django-f5b552b4a875) | [Deployed App](https://fbpforecast.streamlit.app/) |
+| LP4 | Creating GUI for ML Model |  [Article to project](https://gregoryarthur98.medium.com/create-a-multipage-app-for-your-regression-model-without-using-css-html-django-f5b552b4a875) | [Deployed App](https://fbpforecast.streamlit.app/) |
 
 
 ## Contributing
