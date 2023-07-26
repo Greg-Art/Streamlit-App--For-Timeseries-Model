@@ -1,4 +1,4 @@
-# Creating a Web App for a Facebook Prophet Time Series Model 
+# Creating a Web App for a Facebook Prophet Time Series Model 📈
 
 The aim of this project is to deploy a time series regression analysis model. My model of choice was built using Facebook Prophet with external regressors (transaction and on promotions) and the in-built holiday effect feature of Facebook Prophet. 
 
@@ -8,12 +8,12 @@ The aim of this project is to deploy a time series regression analysis model. My
 - The Notebook folder contains the Notebook I used for my EDA and a comparison of the model 
 - I used the Virtualevn Python environment
 
-##App Interface
+## App Interface 🤗
 
 ![Screenshot (247)](https://github.com/Greg-Art/Streamlit-App/assets/126587191/647b2723-cfc9-41eb-afab-38e8c9f01687)
 
 
-## Installation
+## Installation 🛠
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements.txt file. 
 
@@ -21,7 +21,7 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the req
 pip install -r requirements.txt
 ```
 
-## Usage
+## Usage ⚡
 
 ```python
 import all the necessary library names. eg import Streamlit as st 
@@ -30,13 +30,13 @@ import all the necessary library names. eg import Streamlit as st
 Streamlit run src/Welcome.py
 
 ```
-## Summary
+## Summary 💬
 | Code      | Name        | Published Article |  Deployed App |
 |-----------|-------------|:-------------:|------:|
 | LP4 | Creating GUI for ML Model |  [Article to project](https://gregoryarthur98.medium.com/create-a-multipage-app-for-your-regression-model-without-using-css-html-django-f5b552b4a875) | [Deployed App](https://fbpforecast.streamlit.app/) |
 
 
-## Contributing
+## Contribution 🤝🏾
 
 Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
