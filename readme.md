@@ -8,9 +8,9 @@ The aim of this project is to deploy a time series regression analysis model. My
 - The Notebook folder contains the Notebook I used for my EDA and a comparison of the model 
 - I used the Virtualevn Python environment
 
-## App Interface 🤗
+## App In Action 🤗
 
-![Screenshot (247)](https://github.com/Greg-Art/Streamlit-App/assets/126587191/647b2723-cfc9-41eb-afab-38e8c9f01687)
+https://github.com/Greg-Art/Streamlit-App--For-Timeseries-Model/assets/126587191/b785ed79-4c30-4e66-a911-222975de6add
 
 
 ## Installation 🛠
