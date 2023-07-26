@@ -5,9 +5,12 @@ The aim of this project is to deploy a time series regression analysis model. My
 - The model (Facebook Prophet) can be found in the model folder
 - The source code can be found in the src folder
 - The needed CSV files can be found in the data frames folder. 
-- The Notebook folder contains the Notebook I used for my EDA and comparison of the model 
-- I used the Virtualevn python environment
+- The Notebook folder contains the Notebook I used for my EDA and a comparison of the model 
+- I used the Virtualevn Python environment
 
+##App Interface
+
+![Screenshot (247)](https://github.com/Greg-Art/Streamlit-App/assets/126587191/647b2723-cfc9-41eb-afab-38e8c9f01687)
 
 
 ## Installation
